@@ -1,0 +1,43 @@
+//Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+//If either argument isn't a valid number, return undefined.
+
+function add() {
+  
+ var sum = 0;
+ 
+ //Check for number
+ var check = function(num) {
+   if(typeof num !== 'number') {
+      return undefined;
+   }else{
+     return num;
+   }
+  };
+  
+
+  if(arguments.length > 1) {
+    var x = check(arguments[0]);
+    var y = check(arguments[1]);
+    
+    if(x === undefined || y === undefined) {
+      return undefined;
+    }else{
+      return x + y;
+    }
+  }else{
+    var z = arguments[0];
+    
+    if(check(z)) {
+      return function(arg2) {
+        if(z === undefined || check(arg2) === undefined) {
+          return undefined;
+        }else{
+          return z + arg2;
+        }
+      };
+    }
+  }
+ 
+}
+
+add(2,3);
