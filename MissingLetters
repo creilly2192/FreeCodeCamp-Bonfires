@@ -1,0 +1,24 @@
+//Find the missing letter in the passed letter range and return it.
+
+//If all letters are present in the range, return undefined.
+
+function fearNotLetter(str) {
+  var x;
+  var y = 0;
+  var letters = 122;
+  
+  if(str) {
+    x = str.charCodeAt(0);
+    while(x <= letters && y < str.length) {
+      if(String.fromCharCode(x) !== str.charAt(y)) {
+        return String.fromCharCode(x);
+      }
+      x++; y++;
+    }
+  }
+  
+  return undefined;
+  
+}
+
+fearNotLetter("abce");
