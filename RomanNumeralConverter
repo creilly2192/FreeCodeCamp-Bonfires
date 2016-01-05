@@ -1,0 +1,25 @@
+//Convert the given number into a roman numeral.
+
+//All roman numerals answers should be provided in upper-case.
+
+function convert(num) {
+ 
+  var decimal = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ];
+  var roman = [ 'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
+
+  var rome = '';
+
+  
+  for (var index = 0; index < decimal.length; index++) {
+    while (decimal[index] <= num) {
+      rome += roman[index];
+      num -= decimal[index];
+    }
+  }
+
+  return rome;
+ 
+}
+
+
+convert(36);
