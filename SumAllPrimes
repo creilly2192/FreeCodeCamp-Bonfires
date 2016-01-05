@@ -1,0 +1,31 @@
+//Sum all the prime numbers up to and including the provided number.
+
+//A prime number is defined as having only two divisors, 1 and itself. For example, 2 is a prime number because it's only divisible 
+by 1 and 2. 1 isn't a prime number, because it's only divisible by itself.
+
+function sumPrimes(num) {
+ var factorMe = [];
+  
+ function primed(number) {
+  for(var div = 2; div <= number; div++) {
+    if(number % div === 0 && number != div) {
+      return false;
+     }
+   }
+   return true;
+ }
+  
+  if(num === 1) {
+    return 0;
+  }
+  
+  if(primed(num) === false) {
+    return sumPrimes(num - 1);
+  }
+  
+  if(primed(num) === true) {
+    return num +sumPrimes(num -1);
+  }
+}
+
+sumPrimes(977);
