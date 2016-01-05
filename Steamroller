@@ -1,0 +1,27 @@
+//Flatten a nested array. You must account for varying levels of nesting.
+
+function steamroller(arr) {
+  // I'm a steamroller, baby
+ 
+  var newArr = [];
+  function connectMe(x) {
+    var length = x.length;
+    var i = 0;
+    
+    for(i; i < length; i++) {
+      if(x[i] && x[i].constructor == Array) {
+        connectMe(x[i]);
+      }
+      else {
+        newArr.push(x[i]);
+      }
+    }
+  }
+  
+  connectMe(arr);
+  return newArr;
+  
+  
+}
+
+steamroller([[["a"]], [["b"]]]);
