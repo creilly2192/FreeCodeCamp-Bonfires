@@ -1,0 +1,22 @@
+//Compare two arrays and return a new array with any items only found in one of the original arrays.
+
+
+
+
+function diff(arr1, arr2) {
+  var newArr = [];
+  newArr = arr1.concat(arr2);
+  
+  
+  function unique(elem) {
+    if(arr1.indexOf(elem) === -1 || arr2.indexOf(elem) === -1) {
+      return elem;
+    }
+  }
+  
+  // Same, same; but different.
+  
+  return newArr.filter(unique);
+}
+
+diff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
