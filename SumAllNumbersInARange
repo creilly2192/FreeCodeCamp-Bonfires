@@ -4,18 +4,21 @@
 
 
 function sumAll(arr) {
+  //find the min and max numbers of provided array
+  var arrMax = Math.max.apply(null, arr);
+  var arrMin = Math.min.apply(null, arr);
   
-  var max = Math.max.apply(null, arr);
-  var min = Math.min.apply(null, arr);
+  //set initial total to 0
+  var total = 0;
   
-  var newArray = [];
-  while(min <= max) {
-    newArray.push(min++);
+  //loop through each # from min to max 
+  for (var i = arrMin; i <= arrMax; i++) {
+    //add each # to current total 
+    total += i;
   }
   
-  return newArray.reduce(function(a,b){
-    return a + b;
-  });
+  return total;
+  
 }
 
-sumAll([1, 9]);
+sumAll([5, 10]); //45
